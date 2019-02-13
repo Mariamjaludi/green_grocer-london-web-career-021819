@@ -60,9 +60,9 @@ end
 
 def checkout(cart, coupons)
   # code here
-  binding.pry
-  cart = consolidate_cart(cart: [])
   #binding.pry
+  cart = consolidate_cart(cart: [])
+  binding.pry
   cart = apply_coupons(cart: cart, coupons: coupons)
   cart = apply_clearance(cart: cart)
   total = 0
