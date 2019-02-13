@@ -54,7 +54,7 @@ def apply_clearance(cart)
       attributes[:price] = attributes[:price] * 4/5
     end
   end
-  binding.pry
+  #binding.pry
 end
 
 def checkout(cart, coupons)
