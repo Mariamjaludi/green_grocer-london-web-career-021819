@@ -61,13 +61,13 @@ end
 def checkout(cart, coupons)
   # code here
   #binding.pry
-  cart = consolidate_cart(cart: [])
+  my_cart = consolidate_cart(cart: [])
   binding.pry
-  cart = apply_coupons(cart: cart, coupons: coupons)
-  cart = apply_clearance(cart: cart)
+  my_cart = apply_coupons(cart: my_cart, coupons: coupons)
+  cart = apply_clearance(cart: my_cart)
   total = 0.00
-  cart.each do |item, attributes|
-    total = total + attributes[:cost] * attributes[:count]
+  my_cart.each do |item, attributes|
+    total = total + attributes[:price] * attributes[:count]
   end
   if total > 100
     total = total * 9/10
