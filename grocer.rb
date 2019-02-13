@@ -22,7 +22,7 @@ def consolidate_cart(cart)
   hash
 end
 
-def apply_coupons(cart, coupons)
+def apply_coupons(cart, coupons = nil)
   # code here
   result = {}
 
