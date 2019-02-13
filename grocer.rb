@@ -24,22 +24,26 @@ end
 
 def apply_coupons(cart, coupons)
   # code here
-  checkout_hash = {}
-  cart.each do |item, attributes|
-    if item == coupons[:item]
-      temp = attributes[:count] - coupons[:num]
-      checkout_hash["#{item} W/COUPON"] = {
-        :price => attributes[:price],
-        :clearance => attribute[:clearance],
-        :count => 1
-      }
-    end
-    if temp != 0
-      checkout_hash[item] = attributes
-      checkout_hash[item][:count] = temp
-    end
-  end
+  result = {}
 
+  cart.each do |key, val|
+    coupons.each do |coupon|
+      if key == coupon[:item] && val[:count] >= coupon[:num]
+        info[:count] -= coupon[:num]
+        if result["#{key} W/COUPON"]
+          result["#{key} W/COUPON"][:count] += 1
+        else
+          result["#{key} W/COUPON"] = {
+            :price => coupon[:cost],
+            :clearance => val[:clearance],
+            :count => 1
+          }
+        end
+      end
+    end
+    result[key] = val
+  end
+  result
 end
 
 def apply_clearance(cart)
