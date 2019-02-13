@@ -49,6 +49,7 @@ end
 def apply_clearance(cart)
   # code here
   cart.each do |item, attributes|
+    #binding.pry
     if attributes[:clearance] == true
       attributes[:price] = attributes[:price] * 4/5
     end
