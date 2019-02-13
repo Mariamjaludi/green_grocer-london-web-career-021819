@@ -65,7 +65,7 @@ def checkout(cart, coupons)
   binding.pry
   cart = apply_coupons(cart: cart, coupons: coupons)
   cart = apply_clearance(cart: cart)
-  total = 0
+  total = 0.00
   cart.each do |item, attributes|
     total = total + attributes[:cost] * attributes[:count]
   end
