@@ -60,4 +60,7 @@ end
 
 def checkout(cart, coupons)
   # code here
+  my_cart = apply_coupons(cart, coupons)
+  my_cart = apply_clearance(my_cart)
+  
 end
