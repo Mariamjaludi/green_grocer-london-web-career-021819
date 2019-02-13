@@ -51,7 +51,7 @@ def apply_clearance(cart)
   cart.collect do |item, attributes|
 
     if attributes[:clearance] == true
-      attributes[:price] = attributes[:price] * 0.8
+      attributes[:price] = attributes[:price] * 4/5
     end
   end
   binding.pry
